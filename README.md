@@ -2,7 +2,7 @@
 
 Control sonos radiostation / favorites
 
-![](https://gfycat.com/gifs/detail/JauntyGracefulHawk)
+![](https://thumbs.gfycat.com/JauntyGracefulHawk-size_restricted.gif)
 
 
 Depends on:
