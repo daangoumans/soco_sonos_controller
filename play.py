@@ -3,11 +3,9 @@ import soco
 from soco.music_services import MusicService
 import sys
 
-speaker_name = ''
-song_url=''
+speaker_name = 'Woonkamer'
 
-def find_speaker():
-    # Get device and services
+def find_speaker(speaker_name):
     speakers = soco.discover()
     for speaker in speakers:
         if speaker.player_name == speaker_name:
@@ -15,22 +13,24 @@ def find_speaker():
     if not speakers:
         sys.exit()
 
-
-speaker = find_speaker()
+def get_play_url(station_name):
+    stations = speaker.get_sonos_favorites()
+    for station in stations['favorites']:
+        if(str(station_name) in station['title']):
+            return str(station['uri'])
 
 if len(sys.argv) <= 1:
-    print('No Playlist Selected')
+    print('No radio Selected')
+    print('please add "bbc1" or "radio2" as parameter')
     sys.exit()
 else:
     style = sys.argv[1]
-    stations = speaker.get_favorite_radio_stations(0, 2)
-    print(stations)
-    sys.exit()
     if (str(style) == 'bbc1'):
-        song_url = stations['favorites'][0]['uri']
+        station_name = 'BBC Radio 1'
     if (str(style) == 'radio2'):
-        song_url = stations['favorites'][1]['uri']
+        station_name = 'NPO Radio 2'
 
-print(song_url)
-speaker.volume = 15
-speaker.play_uri(uri=song_url,force_radio=True)
+
+speaker = find_speaker(speaker_name)
+play_url = str(get_play_url(station_name))
+speaker.play_uri(uri=play_url,title=station_name)
