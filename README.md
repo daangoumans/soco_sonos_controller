@@ -8,7 +8,7 @@ Control sonos radiostation / favorites
 Depends on:
 
  * A server with python and soco installed: http://python-soco.com/
- * http://workflow.is/
+ * https://workflow.is/workflows/91820cafa1564b39b7b4392e38ec9397
  * Sonos favorites
 
 To make this work:
