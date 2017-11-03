@@ -15,7 +15,7 @@ To make this work:
 * Deploy the play.py file
 	* Please edit the speaker_name in the play.py
 	* Edit the server station names
-		* print(stations) on line 18 from play.py
+		* u can use print(stations) on line 18 from play.py to find these
 	* Add your own stations to the if/else statement
 	
 * Load the .wflow in your ios workflow app
