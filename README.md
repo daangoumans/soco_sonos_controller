@@ -2,6 +2,9 @@
 
 Control sonos radiostation / favorites
 
+![](https://gfycat.com/gifs/detail/JauntyGracefulHawk)
+
+
 Depends on:
 
  * A server with python and soco installed: http://python-soco.com/
