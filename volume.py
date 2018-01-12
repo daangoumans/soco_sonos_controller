@@ -3,7 +3,6 @@ import soco
 from soco.music_services import MusicService
 import sys
 
-speaker_name = 'Woonkamer'
 
 def find_speaker(speaker_name):
     speakers = soco.discover()
@@ -11,16 +10,27 @@ def find_speaker(speaker_name):
         if speaker.player_name == speaker_name:
             return speaker
     if not speakers:
-        sys.exit()
+        print "Speaker not found"
+        return False
 
-if len(sys.argv) <= 1:
-    print('No command selected')
-    print('please add "up" or "down" as parameter')
+if len(sys.argv) <= 3:
+    print('please add a speakername and "up" or "down" and amount as parameter')
+    print('example: living_room up 10')
     sys.exit()
 
-command = sys.argv[1]
+speaker_name = sys.argv[1]
+command = sys.argv[2]
+amount = sys.argv[3]
 speaker = find_speaker(speaker_name)
-if (str(command) == 'up'):
-	speaker.volume += 10
-if (str(command) == 'down'):
-	speaker.volume -= 10
+if speaker:
+    if (str(command) == 'up'):
+        speaker.volume += int(amount)
+        print speaker.volume
+        sys.exit()
+    if (str(command) == 'down'):
+        speaker.volume -= int(amount)
+            print speaker.volume
+            sys.exit()
+else:
+    print "False"
+    sys.exit()
